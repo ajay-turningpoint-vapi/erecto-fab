@@ -36,7 +36,7 @@ const Products = () => {
         {
           name: 'Arrangement 1',
           type: 'Belt Driven',
-          description: 'Overhung impeller with motor in standard positions. Bearings mounted on pedestal.'
+          description: 'Features an overhung impeller mounted at the end of the fan shaft. The motor may be located in any of the four AMCA standard positions (W, X, Y or Z). Fan bearings are supported in a pedestal located outside the airstream for improved service life and easier maintenance.'
         },
 
       ]
@@ -47,7 +47,7 @@ const Products = () => {
         {
           name: 'Arrangement 4',
           type: 'Direct Drive',
-          description: 'Compact, low maintenance design with impeller mounted directly on motor shaft.'
+          description: 'Direct-drive configuration with the impeller mounted directly on the motor shaft and the motor installed on a pedestal. Eliminates fan bearings, shafts, and belt drives for a compact, low-maintenance assembly. Rated for typical operating temperatures up to 180°F.'
         },
 
       ]
@@ -58,7 +58,7 @@ const Products = () => {
         {
           name: 'Arrangement 8',
           type: 'Direct Drive',
-          description: 'Modified Arrangement 1 with flexible coupling connecting fan and motor shaft.'
+          description: 'A direct-drive adaptation of Arrangement 1: the bearing pedestal is extended to support the motor and a flexible coupling connects the fan and motor shafts. This offers easier installation and better alignment tolerance while retaining the standard pedestal support—consult factory for specific torque and size limitations.'
         },
 
       ]
@@ -71,7 +71,7 @@ const Products = () => {
         {
           name: 'Arrangement 9',
           type: 'Belt Driven',
-          description: 'Motor slide base mounted on pedestal side for complete assembly shipping.'
+          description: 'Belt-driven layout with a motor slide base mounted to the side of the bearing pedestal, allowing the unit to ship as a complete assembly with motor and drive installed. Facilitates field belt tensioning and alignment. Motor mounting side is typically left for CW rotation and right for CCW—confirm rotation when ordering.'
         }
       ]
     }

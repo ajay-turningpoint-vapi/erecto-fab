@@ -1,5 +1,6 @@
 import React from 'react';
 import blowerDiagram from '@/assets/images/home.webp';
+import EngineeringData from './EngineeringData';
 
 const ProductDetails = () => {
   const details = [
@@ -13,7 +14,8 @@ const ProductDetails = () => {
   ];
 
   return (
-    <section id="product-details" className="section-padding">
+    <>
+      <section id="product-details" className="section-padding">
       <a href='#product-details'>
       <div className="container mx-auto">
         <div className="text-center max-w-4xl mx-auto mb-8">
@@ -42,6 +44,8 @@ const ProductDetails = () => {
       </div>
       </a>
     </section>
+      <EngineeringData />
+    </>
   );
 };
 

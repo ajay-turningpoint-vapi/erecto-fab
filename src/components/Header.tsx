@@ -58,7 +58,7 @@ const Header = () => {
             </div>
             <div className="block">
               <div className="font-heading font-semibold text-sm sm:text-lg text-foreground tracking-wide leading-tight truncate">ERECTO FAB</div>
-              <div className="text-[10px] sm:text-xs text-muted-foreground tracking-widest">INDUSTRIES</div>
+              <div className="text-[10px] sm:text-xs text-muted-foreground tracking-widest">AIR SYSTEM & BLOWER</div>
             </div>
           </a>
 

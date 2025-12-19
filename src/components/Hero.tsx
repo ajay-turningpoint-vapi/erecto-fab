@@ -26,27 +26,49 @@ const Hero = () => {
           {/* Content */}
           <div className="order-2 lg:order-1">
             <div className="animate-fade-up">
-              <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded text-primary text-sm font-medium tracking-widest uppercase mb-6">
-                Model EFASPB
+              <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded text-primary text-sm font-medium tracking-widest uppercase mb-4">
+                Model PBW
               </span>
             </div>
-            
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-6 animate-fade-up animation-delay-100">
-              Industrial
+
+            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-4 animate-fade-up animation-delay-100">
+              Arrangement 4
               <br />
-              <span className="text-primary">Pressure Blowers</span>
+              <span className="text-primary">with Punched Outlet Flange</span>
             </h1>
-            
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 animate-fade-up animation-delay-200 leading-relaxed">
-              High-performance ventilation systems engineered for demanding industrial applications. 
-              Precision-built for maximum efficiency and reliability.
+
+            <p className="text-lg md:text-lg text-muted-foreground max-w-xl mb-6 animate-fade-up animation-delay-150 leading-relaxed">
+              The Model PBW is engineered for low flow, high static pressure applications while maintaining stable
+              operation across its entire range. It is particularly suited for handling long, stringy, or fibrous
+              materials in demanding industrial environments.
             </p>
 
-            {/* Stats */}
-            <div className="flex flex-wrap gap-8 mb-10 animate-fade-up animation-delay-300">
+            <div className="grid sm:grid-cols-2 gap-6 mb-6 animate-fade-up animation-delay-200">
+              <div>
+                <h4 className="text-sm font-semibold text-foreground mb-2">Typical Applications</h4>
+                <ul className="text-sm text-muted-foreground list-disc list-inside space-y-1">
+                  <li>Textile fiber stripping</li>
+                  <li>Glass blowing</li>
+                  <li>Material conveying</li>
+                  <li>Combustion air</li>
+                  <li>Product drying</li>
+                  <li>Fluid bed aeration</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-foreground mb-2">Also Used For</h4>
+                <ul className="text-sm text-muted-foreground list-disc list-inside space-y-1">
+                  <li>Air pollution control / scrubber exhaust</li>
+                  <li>High-pressure industrial process systems</li>
+                  <li>Gas boosting</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-6 mb-8 animate-fade-up animation-delay-250">
               <div className="industrial-border">
                 <div className="font-heading text-3xl md:text-4xl font-bold text-primary">60"</div>
-                <div className="text-sm text-muted-foreground">Static Pressure</div>
+                <div className="text-sm text-muted-foreground">Static Pressure (w.g.)</div>
               </div>
               <div className="industrial-border">
                 <div className="font-heading text-3xl md:text-4xl font-bold text-primary">7,700</div>
@@ -54,32 +76,35 @@ const Hero = () => {
               </div>
               <div className="industrial-border">
                 <div className="font-heading text-3xl md:text-4xl font-bold text-primary">400°F</div>
-                <div className="text-sm text-muted-foreground">Max Temperature</div>
+                <div className="text-sm text-muted-foreground">Max Operating Temp</div>
               </div>
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-4 animate-fade-up animation-delay-400">
+            <p className="text-sm text-muted-foreground max-w-xl mb-8 animate-fade-up animation-delay-300">
+              Housing Construction: Standard heavy-gauge, continuously-welded steel housings with welded pedestals for
+              rugged, long-term service. Housings are reversible and rotatable in the field for retrofit or new
+              installations. Units include a punched inlet flange, round punched flanged outlet connection, and a
+              standard shaft seal.
+            </p>
+
+            <div className="flex flex-wrap gap-4 animate-fade-up animation-delay-350">
               <a href='#products' ><Button 
-             
                 size="lg" 
                 className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading tracking-wider group"
               >
-                
-                View Products 
+                View Products
                 <ArrowRight  className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button></a>
-                          
 
               <Button 
                 size="lg" 
                 variant="outline" 
                 className="border-border text-foreground hover:bg-secondary font-heading tracking-wider"
               >
-                  <a href={catalogPdf} download="EFASPB-Pressure-Blowers-Catalog.pdf" aria-label="Download EFASPB Pressure Blowers Catalog" className="block w-full">
-                Download Catalog</a>
+                <a href={catalogPdf} download="EFASPB-Pressure-Blowers-Catalog.pdf" aria-label="Download EFASPB Pressure Blowers Catalog" className="block w-full">
+                  Download Catalog
+                </a>
               </Button>
-
             </div>
           </div>
 
