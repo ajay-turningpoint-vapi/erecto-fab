@@ -1,7 +1,7 @@
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 import blowerImage from '@/assets/images/pressure-blower.png';
-
+import catalogPdf from '@/assets/EFASPB-Pressure-Blowers-Catalog.pdf';
 const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
@@ -60,20 +60,26 @@ const Hero = () => {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-up animation-delay-400">
-              <Button 
+              <a href='#products' ><Button 
+             
                 size="lg" 
                 className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading tracking-wider group"
               >
-                View Products
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+                
+                View Products 
+                <ArrowRight  className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button></a>
+                          
+
               <Button 
                 size="lg" 
                 variant="outline" 
                 className="border-border text-foreground hover:bg-secondary font-heading tracking-wider"
               >
-                Download Catalog
+                  <a href={catalogPdf} download="EFASPB-Pressure-Blowers-Catalog.pdf" aria-label="Download EFASPB Pressure Blowers Catalog" className="block w-full">
+                Download Catalog</a>
               </Button>
+
             </div>
           </div>
 

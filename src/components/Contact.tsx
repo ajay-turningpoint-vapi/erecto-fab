@@ -1,8 +1,10 @@
+import * as React from 'react';
 import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 import catalogPdf from '@/assets/EFASPB-Pressure-Blowers-Catalog.pdf';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
+import { toast } from '@/hooks/use-toast';
 
 const Contact = () => {
   const contactInfo = [
@@ -27,6 +29,78 @@ const Contact = () => {
       details: ['Mon - Sat: 9:00 AM - 6:00 PM', 'Sunday: Closed']
     }
   ];
+
+  const [form, setForm] = React.useState({
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    application: '',
+    message: ''
+  });
+
+  const [submitting, setSubmitting] = React.useState(false);
+
+  const update = (field: string, value: string) => setForm((s) => ({ ...s, [field]: value }));
+
+  const validate = () => {
+    if (!form.name.trim()) {
+      toast({ title: 'Name required', description: 'Please enter your full name.' });
+      return false;
+    }
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      toast({ title: 'Invalid email', description: 'Please enter a valid email address.' });
+      return false;
+    }
+    if (!form.message.trim()) {
+      toast({ title: 'Message required', description: 'Please enter a message.' });
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit: React.FormEventHandler = async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    setSubmitting(true);
+
+    const formspreeId = import.meta.env.VITE_FORMSPREE_ID;
+    try {
+      if (formspreeId) {
+        const resp = await fetch(`https://formspree.io/f/${formspreeId}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.name,
+            company: form.company,
+            email: form.email,
+            phone: form.phone,
+            application: form.application,
+            message: form.message
+          })
+        });
+
+        if (!resp.ok) throw new Error('Network response was not ok');
+
+        toast({ title: 'Request sent', description: 'We received your request. We will contact you shortly.' });
+        setForm({ name: '', company: '', email: '', phone: '', application: '', message: '' });
+      } else {
+        // Fallback: open user's mail client with pre-filled email
+        const subject = encodeURIComponent(`Quote request from ${form.name}`);
+        const body = encodeURIComponent(
+          `Name: ${form.name}\nCompany: ${form.company}\nEmail: ${form.email}\nPhone: ${form.phone}\nApplication: ${form.application}\n\nMessage:\n${form.message}`
+        );
+        window.location.href = `mailto:erectofabindustries@gmail.com?subject=${subject}&body=${body}`;
+        toast({ title: 'Opening email', description: 'Your email client will open to send the request.' });
+      }
+    } catch (err) {
+      toast({ title: 'Submission failed', description: 'Could not send request. Please try again later.' });
+      console.error(err);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
@@ -57,12 +131,14 @@ const Contact = () => {
                 Request a Quote
               </h3>
 
-              <form className="space-y-5">
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm text-muted-foreground mb-2">Full Name *</label>
                     <Input
-                      placeholder="John Smith"
+                      placeholder="Nilesh Patel"
+                      value={form.name}
+                      onChange={(e) => update('name', (e.target as HTMLInputElement).value)}
                       className="bg-secondary/50 border-border focus:border-primary"
                     />
                   </div>
@@ -70,6 +146,8 @@ const Contact = () => {
                     <label className="block text-sm text-muted-foreground mb-2">Company</label>
                     <Input
                       placeholder="Company Name"
+                      value={form.company}
+                      onChange={(e) => update('company', (e.target as HTMLInputElement).value)}
                       className="bg-secondary/50 border-border focus:border-primary"
                     />
                   </div>
@@ -81,6 +159,8 @@ const Contact = () => {
                     <Input
                       type="email"
                       placeholder="john@company.com"
+                      value={form.email}
+                      onChange={(e) => update('email', (e.target as HTMLInputElement).value)}
                       className="bg-secondary/50 border-border focus:border-primary"
                     />
                   </div>
@@ -89,6 +169,8 @@ const Contact = () => {
                     <Input
                       type="tel"
                       placeholder="+91 XXXXX XXXXX"
+                      value={form.phone}
+                      onChange={(e) => update('phone', (e.target as HTMLInputElement).value)}
                       className="bg-secondary/50 border-border focus:border-primary"
                     />
                   </div>
@@ -98,6 +180,8 @@ const Contact = () => {
                   <label className="block text-sm text-muted-foreground mb-2">Application Type</label>
                   <Input
                     placeholder="e.g., Material Conveying, Combustion Air"
+                    value={form.application}
+                    onChange={(e) => update('application', (e.target as HTMLInputElement).value)}
                     className="bg-secondary/50 border-border focus:border-primary"
                   />
                 </div>
@@ -107,12 +191,16 @@ const Contact = () => {
                   <Textarea
                     placeholder="Tell us about your project requirements..."
                     rows={4}
+                    value={form.message}
+                    onChange={(e) => update('message', (e.target as HTMLTextAreaElement).value)}
                     className="bg-secondary/50 border-border focus:border-primary resize-none"
                   />
                 </div>
 
                 <Button
                   type="submit"
+                  disabled={submitting}
+                  aria-busy={submitting}
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-heading tracking-wider group"
                 >
                   Submit Request
