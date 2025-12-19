@@ -43,27 +43,7 @@ const Hero = () => {
               materials in demanding industrial environments.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-6 mb-6 animate-fade-up animation-delay-200">
-              <div>
-                <h4 className="text-sm font-semibold text-foreground mb-2">Typical Applications</h4>
-                <ul className="text-sm text-muted-foreground list-disc list-inside space-y-1">
-                  <li>Textile fiber stripping</li>
-                  <li>Glass blowing</li>
-                  <li>Material conveying</li>
-                  <li>Combustion air</li>
-                  <li>Product drying</li>
-                  <li>Fluid bed aeration</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-sm font-semibold text-foreground mb-2">Also Used For</h4>
-                <ul className="text-sm text-muted-foreground list-disc list-inside space-y-1">
-                  <li>Air pollution control / scrubber exhaust</li>
-                  <li>High-pressure industrial process systems</li>
-                  <li>Gas boosting</li>
-                </ul>
-              </div>
-            </div>
+           
 
             <div className="flex flex-wrap gap-6 mb-8 animate-fade-up animation-delay-250">
               <div className="industrial-border">
@@ -80,12 +60,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <p className="text-sm text-muted-foreground max-w-xl mb-8 animate-fade-up animation-delay-300">
-              Housing Construction: Standard heavy-gauge, continuously-welded steel housings with welded pedestals for
-              rugged, long-term service. Housings are reversible and rotatable in the field for retrofit or new
-              installations. Units include a punched inlet flange, round punched flanged outlet connection, and a
-              standard shaft seal.
-            </p>
+           
 
             <div className="flex flex-wrap gap-4 animate-fade-up animation-delay-350">
               <a href='#products' ><Button 

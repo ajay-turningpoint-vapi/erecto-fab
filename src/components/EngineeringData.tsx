@@ -4,11 +4,12 @@ const EngineeringData = () => {
   return (
     <section id="engineering-data" className="section-padding">
       <div className="container mx-auto">
+        <a href='#engineering-data'>
         <div className="text-center max-w-4xl mx-auto mb-8">
           <h2 className="font-heading text-3xl font-bold text-foreground mb-2">Engineering Data</h2>
           <p className="text-muted-foreground text-sm">Key performance and construction data for selection and specification.</p>
         </div>
-
+</a>
         {/* Impeller weights / WR2 table */}
         <div className="mb-8">
           <h3 className="text-xl font-semibold text-foreground mb-3">Maximum RPM, Impeller Weights &amp; WR2</h3>
@@ -44,11 +45,7 @@ const EngineeringData = () => {
         {/* Inlet Suction Pressure Correction */}
         <div className="mb-8">
           <h3 className="text-xl font-semibold text-foreground mb-3">Inlet Suction Pressure Correction</h3>
-          <p className="text-sm text-muted-foreground mb-3">
-            If inlet pressure is suction (negative), correct the static pressure required by dividing by the inlet density ratio.
-            Example: 70°F at sea level with system resistance of 40" gives a correction factor of 0.902 ( = (407.5 − 40) / 407.5 ).
-            Equivalent static pressure for curve selection: 40" ÷ 0.902 = 44.36". Actual inlet air density = 0.075 × 0.902 = 0.0676 lb/ft³.
-          </p>
+         
 
           <div className="overflow-x-auto">
             <table className="table-auto w-full text-sm border-collapse">
